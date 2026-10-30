@@ -1,0 +1,12 @@
+{
+  "name": "focu-flow",
+  "version": "1.0.0",
+  "description": "Focu Flow — Study smarter companion application",
+  "homepage": "https://focu-flow.vercel.app",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": ["study-planner", "pomodoro-timer", "focu-flow", "productivity", "vercel"],
+  "author": "Focu Flow",
+  "license": "MIT"
+}

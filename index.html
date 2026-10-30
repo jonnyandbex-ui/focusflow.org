@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#285d50">
+<title>Focu Flow — Study Smarter. Make Progress.</title>
+<style>
+:root{
+  --green:#285d50;--green2:#3d7969;--sage:#a9c2b2;--mint:#e4eee7;
+  --cream:#f7f6f0;--paper:#fffefa;--ink:#26332e;--muted:#7c8982;
+  --line:#e8e9e1;--gold:#d7a35b;--shadow:0 12px 35px rgba(40,65,54,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--cream);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+  line-height:1.5;overflow-x:hidden;
+}
+button,input,select{font:inherit}
+button{cursor:pointer;transition:all .2s ease}
+
+/* Header */
+.header{
+  position:sticky;top:0;z-index:40;background:rgba(247,246,240,.92);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line);
+  padding:16px 28px;display:flex;align-items:center;justify-content:space-between;
+}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit}
+.logo{
+  width:38px;height:38px;border-radius:12px;background:var(--green);
+  display:grid;place-items:center;color:#fff;font-size:20px;font-weight:700;
+}
+.brand strong{font-size:19px;letter-spacing:-.5px;display:block}
+.brand small{font-size:10px;color:var(--muted);letter-spacing:1.1px;text-transform:uppercase;display:block}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600}
+.nav-links a:hover{color:var(--green)}
+.header-actions{display:flex;align-items:center;gap:10px}
+
+/* Buttons */
+.btn-primary{
+  background:var(--green);color:#fff;border:none;padding:11px 22px;
+  border-radius:11px;font-weight:650;font-size:13px;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 14px rgba(40,93,80,.2);
+}
+.btn-primary:hover{background:#1e4c41;transform:translateY(-1px)}
+.btn-secondary{
+  background:#fff;color:var(--green);border:1px solid var(--line);
+  padding:10px 18px;border-radius:11px;font-weight:650;font-size:13px;
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-secondary:hover{border-color:var(--sage);background:#fbfbf9}
+
+/* Hero */
+.hero-section{max-width:1200px;margin:0 auto;padding:70px 24px 50px;text-align:center}
+.pill{
+  display:inline-flex;align-items:center;gap:8px;background:var(--mint);
+  color:var(--green);padding:6px 14px;border-radius:30px;font-size:11px;
+  font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;
+}
+.hero-title{
+  font-size:clamp(34px,5.2vw,58px);font-weight:800;letter-spacing:-1.6px;
+  line-height:1.12;color:var(--ink);max-width:850px;margin:0 auto 20px;
+}
+.hero-title span{color:var(--green)}
+.hero-desc{
+  font-size:clamp(15px,1.9vw,18px);color:#5d6c63;max-width:620px;
+  margin:0 auto 32px;line-height:1.6;
+}
+.hero-cta{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px;flex-wrap:wrap}
+
+/* App Mockup Preview */
+.mockup-wrap{
+  max-width:1050px;margin:0 auto;background:#fff;border:1px solid var(--line);
+  border-radius:24px;box-shadow:0 25px 70px rgba(40,93,80,.12);overflow:hidden;
+  text-align:left;
+}
+.mockup-bar{
+  background:#f4f3ed;padding:12px 18px;display:flex;align-items:center;
+  gap:8px;border-bottom:1px solid var(--line);
+}
+.dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+.d-red{background:#e57373}.d-yellow{background:#ffb74d}.d-green{background:#81c784}
+.mockup-url{
+  background:#fff;border:1px solid var(--line);border-radius:6px;
+  padding:4px 14px;font-size:11px;color:var(--muted);margin-left:12px;
+}
+.mockup-body{padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.mockup-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px}
+.mockup-card h4{font-size:14px;margin-bottom:8px}
+
+/* Features Grid */
+.section{max-width:1180px;margin:70px auto;padding:0 24px}
+.section-tag{color:var(--green);font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;text-align:center;margin-bottom:8px}
+.section-heading{font-size:32px;font-weight:750;letter-spacing:-.8px;text-align:center;margin-bottom:14px}
+.section-sub{color:var(--muted);text-align:center;max-width:580px;margin:0 auto 46px;font-size:15px}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.f-card{
+  background:#fff;border:1px solid var(--line);border-radius:18px;
+  padding:26px;box-shadow:var(--shadow);transition:transform .2s;
+}
+.f-card:hover{transform:translateY(-3px)}
+.f-icon{
+  width:44px;height:44px;border-radius:12px;background:var(--mint);
+  color:var(--green);display:grid;place-items:center;font-size:22px;margin-bottom:16px;
+}
+.f-card h3{font-size:17px;font-weight:700;margin-bottom:8px;letter-spacing:-.3px}
+.f-card p{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* Comparison Section */
+.comparison{
+  background:linear-gradient(135deg,#edf3ee,#f5f4ec);
+  border-radius:24px;border:1px solid var(--line);padding:40px;margin:60px 0;
+  display:grid;grid-template-columns:1fr 1fr;gap:30px;
+}
+.comp-side h4{font-size:16px;margin-bottom:16px;font-weight:750}
+.comp-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;font-size:13px}
+
+/* CTA Banner */
+.cta-banner{
+  background:var(--green);color:#fff;border-radius:24px;padding:60px 30px;
+  text-align:center;margin:60px 0;
+}
+.cta-banner h2{font-size:36px;font-weight:800;letter-spacing:-1px;margin-bottom:14px}
+.cta-banner p{font-size:16px;opacity:.88;max-width:540px;margin:0 auto 28px}
+.btn-white{
+  background:#fff;color:var(--green);font-weight:700;padding:13px 28px;
+  border-radius:11px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-white:hover{background:#f4f5f0}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding:35px 24px;text-align:center;color:var(--muted);font-size:12px}
+
+@media(max-width:768px){
+  .mockup-body,.comparison{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hero-section{padding:40px 16px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a href="index.html" class="brand">
+    <div class="logo">✦</div>
+    <div>
+      <strong>Focu Flow</strong>
+      <small>Study Smarter</small>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#preview">Planner</a>
+  </div>
+  <div class="header-actions">
+    <a href="app.html" class="btn-secondary">Log in</a>
+    <a href="app.html" class="btn-primary">Get Started &rarr;</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero-section">
+    <div class="pill">✧ Your Calm Study Companion</div>
+    <h1 class="hero-title">Study with <span>clear intent</span>, without the overwhelm.</h1>
+    <p class="hero-desc">Organise your subjects, plan realistic daily goals, run clean Pomodoro focus intervals, and see honest progress unfold.</p>
+    <div class="hero-cta">
+      <a href="app.html" class="btn-primary" style="padding:14px 28px;font-size:15px">Launch Study Planner &rarr;</a>
+      <a href="#features" class="btn-secondary" style="padding:13px 22px">See Features</a>
+    </div>
+
+    <div class="mockup-wrap" id="preview">
+      <div class="mockup-bar">
+        <span class="dot d-red"></span><span class="dot d-yellow"></span><span class="dot d-green"></span>
+        <span class="mockup-url">https://focu-flow.vercel.app/app</span>
+      </div>
+      <div class="mockup-body">
+        <div class="mockup-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+            <span style="font-size:11px;font-weight:700;color:var(--green)">DAILY GOAL</span>
+            <span style="font-size:11px;color:var(--muted)">2.5 / 3 hours</span>
+          </div>
+          <div style="height:8px;background:#e8ece6;border-radius:10px;overflow:hidden">
+            <div style="width:83%;height:100%;background:var(--green2)"></div>
+          </div>
+          <div style="margin-top:20px;font-size:12px">
+            <div style="padding:10px;background:#f9faf7;border-radius:10px;margin-bottom:8px;display:flex;justify-content:space-between">
+              <b>✓ Revise Molecular Biology</b>
+              <span style="color:var(--muted)">45m</span>
+            </div>
+            <div style="padding:10px;background:#f9faf7;border-radius:10px;display:flex;justify-content:space-between">
+              <b>✓ Calculus Derivatives Practice</b>
+              <span style="color:var(--muted)">60m</span>
+            </div>
+          </div>
+        </div>
+        <div class="mockup-card" style="text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center">
+          <span style="font-size:10px;font-weight:700;color:var(--green);letter-spacing:1px">POMODORO TIMER</span>
+          <div style="font-size:42px;font-weight:800;letter-spacing:-1px;margin:8px 0;color:var(--ink)">25:00</div>
+          <p style="font-size:11px;color:var(--muted);margin-bottom:14px">Focused session · Organic Chemistry</p>
+          <a href="app.html" class="btn-primary" style="padding:8px 18px;font-size:12px">Open Active Timer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="section-tag">Engineered For Focus</div>
+    <h2 class="section-heading">Everything you need to succeed</h2>
+    <p class="section-sub">A streamlined toolkit that removes the noise and keeps you locked in on your next learning step.</p>
+    <div class="features-grid">
+      <div class="f-card">
+        <div class="f-icon">▦</div>
+        <h3>Intentional Planner</h3>
+        <p>Break study goals into manageable tasks. Filter effortlessly by today, upcoming, or completed work.</p>
+      </div>
+      <div class="f-card">
+        <div class="f-icon">⏱</div>
+        <h3>Clean Focus Timer</h3>
+        <p>Dedicated 25m Pomodoro, short and long breaks with a gentle sine-wave chime when done.</p>
+      </div>
+      <div class="f-card">
+        <div class="f-icon">▤</div>
+        <h3>Subject Hubs</h3>
+        <p>Group tasks, resources, and logged minutes by course so your study materials stay organized.</p>
+      </div>
+      <div class="f-card">
+        <div class="f-icon">📈</div>
+        <h3>Real Effort Analytics</h3>
+        <p>Interactive 7-day bar charts reflect actual study time logged—no artificial pressure streaks.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how-it-works">
+    <div class="comparison">
+      <div class="comp-side">
+        <h4 style="color:#a84337">✕ The Traditional Struggle</h4>
+        <div class="comp-item"><span>•</span> Scattered PDF links, bookmarks, and forgotten notebooks.</div>
+        <div class="comp-item"><span>•</span> Overwhelming daily task lists that trigger guilt when incomplete.</div>
+        <div class="comp-item"><span>•</span> Distracting study timers loaded with notifications and bloat.</div>
+      </div>
+      <div class="comp-side">
+        <h4 style="color:var(--green)">✓ The Focu Flow Method</h4>
+        <div class="comp-item"><span>✦</span> A single calm home for subjects, materials, and timers.</div>
+        <div class="comp-item"><span>✦</span> Realistic daily goals scaled to your pace and energy.</div>
+        <div class="comp-item"><span>✦</span> Instant offline-friendly browser sync with simple local persistence.</div>
+      </div>
+    </div>
+
+    <div class="cta-banner">
+      <h2>Ready to take control of your study?</h2>
+      <p>No credit card, no complicated onboarding. Jump straight into your personal workspace.</p>
+      <a href="app.html" class="btn-white">Get Started for Free &rarr;</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 Focu Flow. Focus today, freedom tomorrow. Built for effortless deployment on Vercel.</p>
+</footer>
+
+</body>
+</html>
